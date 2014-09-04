@@ -5,4 +5,4 @@ sql/
 mainapp/migrations/
 .idea/
 __pycache__/
-EMSAT/settings.py
+#EMSAT/settings.py
