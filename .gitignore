@@ -1,0 +1,8 @@
+# Created by .gitignore support plugin (hsz.mobi)
+
+static/
+sql/
+mainapp/migrations/
+.idea/
+__pycache__/
+EMSAT/settings.py
