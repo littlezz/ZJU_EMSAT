@@ -13,24 +13,12 @@ EXCLUDE = (2, 4, 5, 8, 10, 12, 13)
 #humanread(1, 3, 6, 7, 9, 11)
 STARTAT = (0, 2, 5, 6, 8, 10)
 WEEK = (1, 2, 3, 4, 5, 6, 7)
-supportkey = ('name', 'time', 'status')
-#记得在course_table_update 中也修改
+supportkey = ('name', 'time', 'status')  #记得在course_table_update 中也修改
+SEASON = ('春', '夏', '秋', '冬')
 
 
 
 
-
-
-class CustomList(list):
-    """
-    Normal list index start at 0, but the courses index start at 1.
-    rewrite the setitem and getitem,everytime key = key-1
-    """
-    def __setitem__(self, key, value):
-        super(list, self).__setitem__(key-1, value)
-
-    def __getitem__(self, item):
-        return super(list, self).__getitem__(item-1)
 
 
 
@@ -42,6 +30,14 @@ class Day:
         for example,
         data[1][2]['name'],
         name of the Second lesson on Monday
+
+
+
+    data struct:
+        data[WEEK][STARTAT][supportkey]
+        for example,
+        data[1][2]['name'],
+        name of the Second lesson on Monday on spring term
     """
 
 
