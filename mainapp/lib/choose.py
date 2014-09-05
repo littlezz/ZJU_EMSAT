@@ -1,7 +1,7 @@
 __author__ = 'zz'
 
 
-from itertools import groupby
+
 from mainapp.models import CourseLesson
 from random import shuffle
 

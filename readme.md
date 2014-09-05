@@ -12,6 +12,26 @@ to do
 
 
 
+required
+==============
+
+django1.7
+--------------
+
+抓取课程要添加的表
+--------------------
+```
+startday = models.IntegerField()               #3
+startcourse = models.IntegerField()            #1
+firstcourse = models.CharField(max_length=20)  #3,1,2  means fri, the first and second
+secondcourse = models.CharField(max_length=20)
+```
+比如课程是周二3,4节 周四1,2节.  
+`startday` 表示这周首次课是哪一天, 这里是 2 (周二)
+`startcourse` 是startday的第一节课 这里是2 (周二的第三节课,从0开始)
+`firstcourse` 字符串,形如 whichday,num1,num2, 表示首天的课程, 这里是 `2,2,3` (周二第3,4节)
+`secondcourse` 同上, 这里是`4,0,1` ,如果没用着为空.
+
 
 
 
