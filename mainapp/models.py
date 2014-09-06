@@ -55,3 +55,5 @@ class CourseLesson(models.Model):
     firstcourse = models.CharField(max_length=20)  #3,1,2  means fri, the first and second
     secondcourse = models.CharField(max_length=20)
 
+    season = models.CharField(max_length=10,default='')
+
