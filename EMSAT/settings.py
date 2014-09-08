@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'EMSAT',
-    'mainapp'
+    'mainapp',
+    'django_ajax',
 
 )
 

@@ -5,11 +5,12 @@ from .models import get_or_create_user
 from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-from .thread_test import something
-import json
+from django_ajax.decorators import ajax
+
 from .models import CourseDetail
 from django.http import JsonResponse
 from .lib import choose
+from django.http import Http404
 # Create your views here.
 
 
@@ -52,9 +53,6 @@ def create_nickname(request):
 @login_required
 def home(requets):
     ipadress = requets.META['REMOTE_ADDR']
-
-
-
     return render(requets,'home.html')
 
 
@@ -62,12 +60,17 @@ def out(request):
     logout(request)
     return HttpResponseRedirect(reverse('welcome'))
 
+@ajax
 def test_ajax(requests):
-    t=choose.Table()
-    t.user_fullcourse()
-    vdict = t.table
     #response = HttpResponse(json.dumps(vdict), content_type='application/json')
     #response.status = 200
-
-    response = JsonResponse(vdict)
-    return  response
+    #response = JsonResponse(vdict)
+    vdict = {}
+    if requests.method == 'POST':
+        t = choose.Table()
+        try:
+            getattr(t,requests.POST['mode'])()
+        except AttributeError:
+            raise Http404
+        vdict = t.table
+    return  vdict

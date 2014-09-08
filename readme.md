@@ -1,33 +1,37 @@
 
 to do
 ==========
-1. 测试ajax  ----------------->done
-2. 从无到有创建满课表  -------------->done
-3. 测试ajax post
-4. 测试部分有课的情况创建满课表
-5. 测试选退课 ajax post 处理
-6. 添加其他课表限制
-7. 添加API,测试
-8. 测试.
-
+- 测试ajax  ----------------->done
+- 从无到有创建满课表  -------------->done
+- 测试ajax post  ------------------>done
+- 考虑post所需的数据
+- 测试部分有课的情况创建满课表
+- 测试选退课 ajax post 处理
+- 添加其他课表限制
+- 添加API,测试
+- 测试-
 
 micro
 -----------
-- use attrgetter for supportkey --done
-- use djangoajax
+- use attrgetter for supportkey ----------done
+- use djangoajax --------done
 - 添加多重志愿
 
 update
 =========
 support diffrent seasons! 9-6
 修改`supportkey`即可修改返回的参数 9-8
+依赖djangoajax 库,测试post 9-8
 
 
 required
 ==============
 
-django1.7
---------------
+- django
+- djangoajax 
+
+
+
 
 抓取课程要添加的表
 --------------------

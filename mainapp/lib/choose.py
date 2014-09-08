@@ -92,13 +92,8 @@ class Day:
 
     def course_table_update(self, seasons, whichday, whichcourse, newcourse, status):
 
-
         for whichseason in seasons:
-            #self.table[whichseason][whichday][whichcourse]=dict()
-            #for key in supportkey[:-1]:
-            #    self.table[whichseason][whichday][whichcourse].update(key=getattr(newcourse, key))
             self.table[whichseason][whichday][whichcourse] = dict((key, getattr(newcourse, key)) for key in supportkey[:-1])
-
             self.table[whichseason][whichday][whichcourse].update(status=status)
 
 

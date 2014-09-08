@@ -5,17 +5,13 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="{% static 'script/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'django_ajax/js/jquery.ajax.min.js' %}"></script>
 
     <script>
         $(document).ready(function(){
             $("h2").click(function(){
 
-                $.get('{% url 'test_ajax' %}',function(data){
-
-
-
-
-
+                ajaxPost('{% url 'test_ajax' %}',{'mode':'user_fullcourse'},function(data){
                     if (data){
                         alert('ajax!')
                     }

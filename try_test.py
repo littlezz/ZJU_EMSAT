@@ -7,7 +7,13 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'EMSAT.settings'
 from django.conf import settings
 """
 
-from mainapp.lib import choose
+#import os
+#import sys
+#sys.path.append(os.getcwd())
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "EMSAT.settings")
+#from django.conf import settings
+from mainapp.models import  CourseLesson
+a=CourseLesson.objects.get(pk=1)
+print(a)
 
-t=choose.Table()
-t.user_fullcourse()
+
