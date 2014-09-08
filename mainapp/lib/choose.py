@@ -13,7 +13,7 @@ EXCLUDE = (2, 4, 5, 8, 10, 12, 13)
 #humanread(1, 3, 6, 7, 9, 11)
 STARTAT = (0, 2, 5, 6, 8, 10)
 WEEK = (1, 2, 3, 4, 5, 6, 7)
-supportkey = ('name', 'time', 'status')  # 记得在course_table_update 中也修改
+supportkey = ('code', 'arrange','season', 'status')  # 确保status在最后
 #SEASON = ('春', '夏', '秋', '冬')
 SEASON = (0, 1, 2, 3)
 
@@ -92,13 +92,14 @@ class Day:
 
     def course_table_update(self, seasons, whichday, whichcourse, newcourse, status):
 
-        for whichseason in seasons:
-            self.table[whichseason][whichday][whichcourse] = {
-                                                    'name': newcourse.code,
-                                                    'time': newcourse.arrange,
-                                                    'status': status,
-                                                    }
 
+        for whichseason in seasons:
+            #self.table[whichseason][whichday][whichcourse]=dict()
+            #for key in supportkey[:-1]:
+            #    self.table[whichseason][whichday][whichcourse].update(key=getattr(newcourse, key))
+            self.table[whichseason][whichday][whichcourse] = dict((key, getattr(newcourse, key)) for key in supportkey[:-1])
+
+            self.table[whichseason][whichday][whichcourse].update(status=status)
 
 
 

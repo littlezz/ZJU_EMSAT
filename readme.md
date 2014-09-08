@@ -13,11 +13,14 @@ to do
 
 micro
 -----------
-- use attrgetter for supportkey
+- use attrgetter for supportkey --done
+- use djangoajax
+- 添加多重志愿
 
 update
 =========
 support diffrent seasons! 9-6
+修改`supportkey`即可修改返回的参数 9-8
 
 
 required
