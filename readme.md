@@ -19,15 +19,15 @@ micro
 
 update
 =========
-support diffrent seasons! 9-6
-修改`supportkey`即可修改返回的参数 9-8
-依赖djangoajax 库,测试post 9-8
+- support diffrent seasons! 9-6  
+- 修改`supportkey`即可修改返回的参数 9-8
+- 依赖djangoajax 库,测试post 9-8
 
 
 required
 ==============
 
-- django
+- django >= ~1.7~
 - djangoajax 
 
 
@@ -75,3 +75,6 @@ choose
 
 让所有都从0开始.
 
+ZAWExsvftbgynhumjiko,lp.;/'
+=================================
+夭寿啦!夭寿啦!BAE *不仅*没有py3, *而且*还没有 django1.7,什么都没有还敢开店(´_ゝ`)
