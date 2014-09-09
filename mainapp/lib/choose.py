@@ -33,12 +33,12 @@ class Day:
 
 
 
-    def __init__(self, whichseason, whichday, table):
+    def __init__(self, whichseason, whichday, table, credit_manager):
         self.table = table
         self.nowday = table[whichseason][whichday]
         self.whichseason = whichseason
         self.whichday = whichday
-
+        self.credit_manager = credit_manager
 
     def full(self):
         freetime = (num for (num, i) in enumerate(self.nowday) if (not i) and  (num in STARTAT) )
@@ -87,7 +87,7 @@ class Day:
                 self.course_table_update(seasons, whichday2, i, course, 1)
 
 
-
+        self.credit_manager.add(course.code, course.credit)
         return True
 
     def course_table_update(self, seasons, whichday, whichcourse, newcourse, status):
@@ -98,6 +98,22 @@ class Day:
 
 
 
+
+class Credit:
+    def __init__(self):
+        self.credit = 0
+        self._dict = dict()
+    def add(self, coursecode, coursecredit):
+        if coursecode not in self._dict:
+            self._dict[coursecode] = coursecredit
+            self.credit += coursecredit
+
+    def remove(self,coursecode):
+        if coursecode in self._dict:
+            discard_credit = self._dict.pop(coursecode)
+            self.credit -= discard_credit
+
+
 class Table:
 
 
@@ -105,6 +121,7 @@ class Table:
         self.table = table if table else dict((j,dict((i, [None]*13) for i in WEEK)) for j in SEASON)
         self.week = WEEK
         self.season = SEASON
+        self.credit_manager = Credit()
     def user_fullcourse(self):
 
         for whichseason in self.season:

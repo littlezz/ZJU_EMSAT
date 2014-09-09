@@ -22,12 +22,12 @@ update
 - support diffrent seasons! 9-6  
 - 修改`supportkey`即可修改返回的参数 9-8
 - 依赖djangoajax 库,测试post 9-8
-
+- 支持统计学分 9-9
 
 required
 ==============
 
-- django >= ~1.7~
+- django >= ~ 1.7 ~
 - djangoajax 
 
 
@@ -35,13 +35,16 @@ required
 
 抓取课程要添加的表
 --------------------
+
+在CourseLesson 中
 ```
 startday = models.IntegerField()               #3
 startcourse = models.IntegerField()            #1
 firstcourse = models.CharField(max_length=20)  #3,1,2  means fri, the first and second
 secondcourse = models.CharField(max_length=20)
-
 season = models.CharField(max_length=10)
+name = models.CharField(max_length=50)
+credit = models.FloatField()
 ```
 
 比如课程是周二3,4节 周四1,2节.    
@@ -51,6 +54,8 @@ season = models.CharField(max_length=10)
 `secondcourse` 同上, 这里是`4,0,1` ,如果没用着为空.  
 
 `season` 哪个学期,取值0-3 逗号隔开,比如秋冬 `2,3`, 春`0`  
+`name` 课程名字,现在的只有代号.
+`credit` 学分
 
 抓课表的时候记得没有上课时间的,或者没有学期的课程直接过滤掉,不要写进数据库.
 

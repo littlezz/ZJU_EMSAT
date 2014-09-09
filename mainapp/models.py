@@ -56,4 +56,5 @@ class CourseLesson(models.Model):
     secondcourse = models.CharField(max_length=20)
 
     season = models.CharField(max_length=10,default='')
-
+    #name = models.CharField(max_length=50)
+    #credit = models.FloatField()
